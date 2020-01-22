@@ -818,6 +818,7 @@ class StringColumn(column.ColumnBase):
     def sum(self, dtype=None):
         # dtype is irrelevant it is needed to be in sync with 
         # the sum method for Numeric Series
+        # test
         return self._nvstrings.join().to_host()[0]
 
     @property

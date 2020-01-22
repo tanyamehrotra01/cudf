@@ -814,6 +814,9 @@ class StringColumn(column.ColumnBase):
         else:
             msg = "{!r} operator not supported between {} and {}"
             raise TypeError(msg.format(binop, type(self), type(rhs)))
+    
+    def sum(self):
+        return self._nvstrings.join().to_host()[0]
 
     @property
     def is_unique(self):
